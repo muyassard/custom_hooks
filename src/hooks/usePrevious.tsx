@@ -31,8 +31,8 @@ export const Previous:React.FC = () => {
     })();
   };
 
-  const prev = `w-[50px] h-[50px] bg-${previousColor}-200`;
-  const cur = `w-[50px] h-[50px] bg-${color}-200`;
+  const prev = `w-[50px] h-[50px] bg-${previousColor}-300`;
+  const cur = `w-[50px] h-[50px] bg-${color}-300`;
 
   return (
     <div className="h-[100%]  grid place-items-center m-5">

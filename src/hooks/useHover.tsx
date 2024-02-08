@@ -23,8 +23,8 @@ const useHover = () => {
 export const Hover: React.FC = () => {
   const [ref, isHover] = useHover();
   const classname = isHover
-    ? ` cursor-pointer active: scale-75 w-[120px] h-[50px] grid place-items-center border p-3 bg-[#efed40]`
-    : " cursor-pointer active: scale-75 w-[120px] h-[50px] grid place-items-center border p-3 bg-[#faf]";
+    ? ` cursor-pointer active: scale-75 w-[220px] h-[150px] grid place-items-center border p-3 bg-[#efed40]`
+    : " cursor-pointer active: scale-75 w-[220px] h-[150px] grid place-items-center border p-3 bg-[#faf]";
 
   return (
     <div className="h-[100%]  grid place-items-center m-5">
