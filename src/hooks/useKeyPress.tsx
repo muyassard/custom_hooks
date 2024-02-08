@@ -1,10 +1,7 @@
-import { Button } from "antd";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-const useKeyPress = () => {};
-
-export const KeyPress: React.FC = () => {
-  const [activeKey, setActiveKey] = React.useState("");
+const useKeyPress = (): string => {
+  const [activeKey, setActiveKey] = useState<string>("");
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -12,25 +9,36 @@ export const KeyPress: React.FC = () => {
 
       if (/[a-z]/.test(pressedKey)) {
         setActiveKey(pressedKey);
-        // console.log( pressedKey);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
+
+  return activeKey;
+};
+
+export const KeyPress: React.FC = () => {
+  const activeKey = useKeyPress();
   const letters1 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
   const letters2 = ["a", "s", "d", "f", "g", "h", "j", "k", "l"];
   const letters3 = ["z", "x", "c", "v", "b", "n", "m"];
-  const classname = `p-5 rounded-lg bg-blue-200 `;
+  const classname = `p-5 rounded-lg bg-blue-200`;
+
   return (
     <div className="h-[100%]  grid place-items-center mt-10">
       <h1>useKeyPress</h1>
       <div className="flex flex-col gap-3 items-center">
         <div className="flex gap-2">
-          {letters1.map((letter, index) => (
+          {letters1.map((letter) => (
             <div
+              key={letter}
               className={
-                classname + `${letter === activeKey ? "bg-blue-400" : ""}`
+                classname + `${letter === activeKey ? " bg-blue-400" : ""}`
               }
             >
               {letter}
@@ -38,10 +46,11 @@ export const KeyPress: React.FC = () => {
           ))}
         </div>
         <div className="flex gap-2">
-          {letters2.map((letter, index) => (
+          {letters2.map((letter) => (
             <div
+              key={letter}
               className={
-                classname + `${letter === activeKey ? "bg-blue-400" : ""}`
+                classname + `${letter === activeKey ? " bg-blue-400" : ""}`
               }
             >
               {letter}
@@ -49,10 +58,11 @@ export const KeyPress: React.FC = () => {
           ))}
         </div>
         <div className="flex gap-2">
-          {letters3.map((letter, index) => (
+          {letters3.map((letter) => (
             <div
+              key={letter}
               className={
-                classname + `${letter === activeKey ? "bg-blue-400" : ""}`
+                classname + `${letter === activeKey ? " bg-blue-400" : ""}`
               }
             >
               {letter}
@@ -63,45 +73,3 @@ export const KeyPress: React.FC = () => {
     </div>
   );
 };
-
-// import * as React from "react";
-// import { useKeyPress } from "@uidotdev/usehooks";
-
-// export default function App() {
-//   const [activeKey, setActiveKey] = React.useState("");
-
-//   useKeyPress("ArrowRight", onKeyPress);
-//   useKeyPress("ArrowLeft", onKeyPress);
-//   useKeyPress("ArrowUp", onKeyPress);
-//   useKeyPress("ArrowDown", onKeyPress);
-
-//   function onKeyPress(e) {
-//     e.preventDefault();
-//     setActiveKey(e.key);
-//     setTimeout(() => {
-//       setActiveKey("");
-//     }, 600);
-//   }
-
-//   return (
-//     <section>
-//       <h1>useKeyPress</h1>
-//       <p>Press one of the arrow keys on your keyboard</p>
-//       <article>
-//         <button className={activeKey === "ArrowUp" ? "pressed" : ""}>
-//           <span>&uarr;</span>
-//         </button>
-//         <button className={activeKey === "ArrowLeft" ? "pressed" : ""}>
-//           <span>&larr;</span>
-//         </button>
-//         <button className={activeKey === "ArrowDown" ? "pressed" : ""}>
-//           <span>&darr;</span>
-//         </button>
-//         <button className={activeKey === "ArrowRight" ? "pressed" : ""}>
-//           <span>&rarr;</span>
-//         </button>
-//       </article>
-//       {Boolean(activeKey) && <label>{activeKey} was pressed</label>}
-//     </section>
-//   );
-// }
