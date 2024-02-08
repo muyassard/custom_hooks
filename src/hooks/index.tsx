@@ -6,3 +6,5 @@ export { Previous } from "./usePrevious";
 export { TimeOut } from "./useTimeOut";
 export { List } from "./useList";
 export { KeyPress } from "./useKeyPress";
+export { LocalStorage } from "./useLocalStorage";
+export { State } from "./useState";

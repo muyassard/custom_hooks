@@ -7,7 +7,9 @@ import {
   Hover,
   KeyPress,
   List,
+  LocalStorage,
   Previous,
+  State,
   TimeOut,
 } from "./hooks";
 
@@ -23,6 +25,8 @@ const Routes: React.FC = () => {
         <Route path="timeOut" element={<TimeOut />}></Route>
         <Route path="list" element={<List />}></Route>
         <Route path="keyPress" element={<KeyPress />}></Route>
+        <Route path="localStorage" element={<LocalStorage />}></Route>
+        <Route path="state" element={<State />}></Route>
 
         <Route path="*" element={<Navigate to="/hooks/clickAway" />}></Route>
       </Route>

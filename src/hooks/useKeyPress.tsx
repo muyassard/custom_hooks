@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 
 const useKeyPress = () => {};
 
-export const KeyPress = () => {
+export const KeyPress: React.FC = () => {
   const [activeKey, setActiveKey] = React.useState("");
 
   useEffect(() => {
@@ -24,6 +24,7 @@ export const KeyPress = () => {
   const classname = `p-5 rounded-lg bg-blue-200 `;
   return (
     <div className="h-[100%]  grid place-items-center mt-10">
+      <h1>useKeyPress</h1>
       <div className="flex flex-col gap-3 items-center">
         <div className="flex gap-2">
           {letters1.map((letter, index) => (
