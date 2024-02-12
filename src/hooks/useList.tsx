@@ -20,9 +20,9 @@ const ListDemo: React.FC<Demo> = ({ list, updateAt, removeAt, push }) => {
           push(value.todo);
           console.log(ref.current?.input?.value);
 
-          // ref.current?.input?.value="";
+          // ref.current?.input?.value=""; 
         }}
-      >
+      > 
         <Form.Item
           rules={[
             {

@@ -4,10 +4,10 @@ import React, { useState, useRef, useEffect } from "react";
 export const ClickAway: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
+  
+  useEffect(() => { 
     function handleClickOutside(event: MouseEvent) {
-      if (
+      if ( 
         modalRef.current &&
         !modalRef.current.contains(event.target as Node)
       ) {

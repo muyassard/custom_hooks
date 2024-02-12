@@ -11,14 +11,15 @@ import {
   Previous,
   State,
   TimeOut,
+  Memo
 } from "./hooks";
 
 const Routes: React.FC = () => {
   return (
     <Switch>
       <Route path="hooks">
-        <Route path="clickAway" element={<ClickAway />}></Route>
         <Route path="counter" element={<Counter />}></Route>
+        <Route path="clickAway" element={<ClickAway />}></Route>
         <Route path="favicon" element={<Favicon />}></Route>
         <Route path="hover" element={<Hover />}></Route>
         <Route path="previous" element={<Previous />}></Route>
@@ -27,7 +28,8 @@ const Routes: React.FC = () => {
         <Route path="keyPress" element={<KeyPress />}></Route>
         <Route path="localStorage" element={<LocalStorage />}></Route>
         <Route path="state" element={<State />}></Route>
-
+        <Route path="memo" element={<Memo />}></Route>
+        
         <Route path="*" element={<Navigate to="/hooks/clickAway" />}></Route>
       </Route>
       <Route index path="*" element={<Navigate to="/hooks/counter" />}></Route>

@@ -6,17 +6,13 @@ const useKeyPress = (): string => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const pressedKey = event.key.toLowerCase();
-
+      
       if (/[a-z]/.test(pressedKey)) {
         setActiveKey(pressedKey);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
   }, []);
 
   return activeKey;
