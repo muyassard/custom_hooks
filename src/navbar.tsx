@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
     "localStorage",
     "state",
     "memo",
-    "callback"
+    "callback",
   ];
   return (
     <div className=" text-white flex gap-5 flex-wrap bg-blue-200 p-5 iteams-center justify-between">
@@ -24,6 +24,7 @@ const Navbar: React.FC = () => {
       <div className="flex gap-2 flex-wrap justify-center">
         {btns.map((item, idx) => (
           <Button
+            key={idx}
             onClick={() => navigate(`hooks/${item}`)}
             size="large"
             className="capitalize"

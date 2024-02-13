@@ -7,7 +7,7 @@ interface TimerProps {
 
 export const Callback1: React.FC<TimerProps> = ({ onTimerTick }) => {
   const [count, setCount] = useState(0);
- 
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCount((prevCount) => {
@@ -18,11 +18,10 @@ export const Callback1: React.FC<TimerProps> = ({ onTimerTick }) => {
 
     return () => clearInterval(interval);
   }, [onTimerTick]);
-
+   
   const handleButtonClick = useCallback(() => {
-    console.log("Button clicked!");
-    setCount(0)
-    
+    console.log("Button clicked!"); 
+    setCount(0);
   }, []);
 
   return (
