@@ -8,11 +8,11 @@ const initialItem = new Array(1000000).fill(0).map((_, i) => {
   };
 });
 
-export const Memo = () => {
+export const Memo: React.FC = () => {
   const [count, setCount] = useState(0);
-  const [items] = useState(initialItem);
+  const [items] = useState(initialItem); 
 
-  const selectedItem = useMemo(()=>items.find((item) => item.isSelected),[]);
+  const selectedItem = useMemo(() => items.find((item) => item.isSelected), []);
 
   return (
     <div className="h-[100%] flex flex-col items-center justify-center gap-3 m-5">

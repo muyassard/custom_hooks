@@ -12,6 +12,7 @@ import {
   State,
   TimeOut,
   Memo,
+  Callback1,
 } from "./hooks";
 
 const Routes: React.FC = () => {
@@ -29,6 +30,10 @@ const Routes: React.FC = () => {
         <Route path="localStorage" element={<LocalStorage />}></Route>
         <Route path="state" element={<State />}></Route>
         <Route path="memo" element={<Memo />}></Route>
+        <Route
+          path="callback"
+          element={<Callback1 onTimerTick={() => {}} />}
+        ></Route>
 
         <Route path="*" element={<Navigate to="/hooks/clickAway" />}></Route>
       </Route>

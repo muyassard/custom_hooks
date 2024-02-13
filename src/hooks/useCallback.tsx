@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import React, { useCallback, useEffect, useState } from "react";
 
 interface TimerProps {
@@ -6,7 +7,7 @@ interface TimerProps {
 
 export const Callback1: React.FC<TimerProps> = ({ onTimerTick }) => {
   const [count, setCount] = useState(0);
-
+ 
   useEffect(() => {
     const interval = setInterval(() => {
       setCount((prevCount) => {
@@ -20,12 +21,14 @@ export const Callback1: React.FC<TimerProps> = ({ onTimerTick }) => {
 
   const handleButtonClick = useCallback(() => {
     console.log("Button clicked!");
+    setCount(0)
+    
   }, []);
 
   return (
     <div className="h-[100%]  grid place-items-center">
       <p>Timer Count: {count}</p>
-      <button onClick={handleButtonClick}>Click me</button>
+      <Button onClick={handleButtonClick}>Click me</Button>
     </div>
   );
 };

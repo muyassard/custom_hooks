@@ -9,3 +9,4 @@ export { KeyPress } from "./useKeyPress";
 export { LocalStorage } from "./useLocalStorage";
 export { State } from "./useState";
 export { Memo } from "./useMemo";
+export { Callback1 } from "./useCallback";
