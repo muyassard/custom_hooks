@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-import { Button, Input, Checkbox } from "antd";
+import { Button, Input, Checkbox, Form } from "antd";
 
 type Todo = {
   id: number;
@@ -52,41 +52,55 @@ export const TodoList: React.FC = () => {
   return (
     <div className="grid place-items-center pt-20">
       <h1>Todo List</h1>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <Checkbox
-              checked={todo.completed}
-              onChange={() => handleToggleTodo(todo.id)}
+
+      <div className="">
+        <Form
+          className="flex"
+          onFinish={(value) => {
+            console.log(value.todo);
+
+            handleAddTodo();
+          }}
+        >
+          <Form.Item name="todo">
+            <Input
+              type="text"
+              value={newTodo}
+              onChange={(e) => setNewTodo(e.target.value)}
+              placeholder="Add new todo"
             />
-            <span
-              style={{
-                textDecoration: todo.completed ? "line-through" : "none",
-              }}
-            >
-              {todo.text}
-            </span>
-            <Button
-              danger
-              type="primary"
-              className=""
-              onClick={() => handleRemoveTodo(todo.id)}
-            >
-              Remove
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" onClick={handleAddTodo}>
+              Add Todo
             </Button>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <Input
-          type="text"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="Add new todo"
-        />
-        <Button type="primary" onClick={handleAddTodo}>
-          Add Todo
-        </Button>
+          </Form.Item>
+        </Form>
+
+        <div>
+          {todos.map((todo) => (
+            <div className="flex justify-between items-center" key={todo.id}>
+              <Checkbox
+                checked={todo.completed}
+                onChange={() => handleToggleTodo(todo.id)}
+              />
+              <span
+                style={{
+                  textDecoration: todo.completed ? "line-through" : "none",
+                }}
+              >
+                {todo.text}
+              </span>
+              <Button
+                danger
+                type="primary"
+                onClick={() => handleRemoveTodo(todo.id)}
+              >
+                Remove
+              </Button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
