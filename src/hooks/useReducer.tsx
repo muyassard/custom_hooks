@@ -1,19 +1,16 @@
 import React, { useReducer, useState } from "react";
 
-// Define the type for the Todo item
 type Todo = {
   id: number;
   text: string;
   completed: boolean;
 };
 
-// Define the action types
 type TodoAction =
   | { type: "ADD_TODO"; text: string }
   | { type: "TOGGLE_TODO"; id: number }
   | { type: "REMOVE_TODO"; id: number };
 
-// Define the reducer function
 const todoReducer = (state: Todo[], action: TodoAction): Todo[] => {
   switch (action.type) {
     case "ADD_TODO":
@@ -32,7 +29,6 @@ const todoReducer = (state: Todo[], action: TodoAction): Todo[] => {
   }
 };
 
-// Define the TodoList component
 export const TodoList: React.FC = () => {
   const [todos, dispatch] = useReducer(todoReducer, []);
   const [newTodo, setNewTodo] = useState<string>("");
