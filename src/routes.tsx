@@ -14,6 +14,7 @@ import {
   Memo,
   Callback1,
   Request,
+  TodoList
 } from "./hooks";
 
 const Routes: React.FC = () => {
@@ -32,6 +33,8 @@ const Routes: React.FC = () => {
         <Route path="state" element={<State />}></Route>
         <Route path="memo" element={<Memo />}></Route>
         <Route path="request" element={<Request />}></Route>
+        <Route path="reducer" element={<TodoList />}></Route>
+
         <Route
           path="callback"
           element={<Callback1 onTimerTick={() => {}} />}
