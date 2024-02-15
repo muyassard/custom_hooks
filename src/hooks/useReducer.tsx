@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from "react";
+import { Button, Input, Checkbox } from "antd";
 
 type Todo = {
   id: number;
@@ -49,13 +50,12 @@ export const TodoList: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="grid place-items-center pt-20">
       <h1>Todo List</h1>
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
-            <input
-              type="checkbox"
+            <Checkbox
               checked={todo.completed}
               onChange={() => handleToggleTodo(todo.id)}
             />
@@ -66,18 +66,27 @@ export const TodoList: React.FC = () => {
             >
               {todo.text}
             </span>
-            <button onClick={() => handleRemoveTodo(todo.id)}>Remove</button>
+            <Button
+              danger
+              type="primary"
+              className=""
+              onClick={() => handleRemoveTodo(todo.id)}
+            >
+              Remove
+            </Button>
           </li>
         ))}
       </ul>
       <div>
-        <input
+        <Input
           type="text"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
           placeholder="Add new todo"
         />
-        <button onClick={handleAddTodo}>Add Todo</button>
+        <Button type="primary" onClick={handleAddTodo}>
+          Add Todo
+        </Button>
       </div>
     </div>
   );
