@@ -12,7 +12,7 @@ const useCounter = (initialValue = 1, { min = 0, max = 1000 }) => {
 
   return [count, methods] as const;
 };
-
+  
 export const Counter: React.FC = () => {
   const initialValue = 5;
   const min = 1;

@@ -17,6 +17,7 @@ const Navbar: React.FC = () => {
     "state",
     "memo",
     "callback",
+    "request",
   ];
   return (
     <div className=" text-white flex gap-5 flex-wrap bg-blue-200 p-5 iteams-center justify-between">

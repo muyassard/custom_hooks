@@ -13,6 +13,7 @@ import {
   TimeOut,
   Memo,
   Callback1,
+  Request,
 } from "./hooks";
 
 const Routes: React.FC = () => {
@@ -30,6 +31,7 @@ const Routes: React.FC = () => {
         <Route path="localStorage" element={<LocalStorage />}></Route>
         <Route path="state" element={<State />}></Route>
         <Route path="memo" element={<Memo />}></Route>
+        <Route path="request" element={<Request />}></Route>
         <Route
           path="callback"
           element={<Callback1 onTimerTick={() => {}} />}
