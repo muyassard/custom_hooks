@@ -48,7 +48,7 @@ export const TodoList: React.FC = () => {
   const handleRemoveTodo = (id: number) => {
     dispatch({ type: "REMOVE_TODO", id });
   };
-
+  
   return (
     <div className="grid place-items-center pt-20">
       <h1>Todo List</h1>

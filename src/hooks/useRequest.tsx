@@ -97,11 +97,12 @@ export const Request: React.FC = () => {
   return (
     <div className="flex flex-col gap-2 p-4 h-[100%] items-center">
       <h1>useRequest</h1>
-
-      <Button onClick={() => setParams({ param: "userslist" })}>list</Button>
-      <Button onClick={() => setParams({ param: `user${userId}` })}>
-        user
-      </Button>
+      <Button.Group>
+        <Button onClick={() => setParams({ param: "userslist" })}>list</Button>
+        <Button onClick={() => setParams({ param: `user${userId}` })}>
+          user
+        </Button>
+      </Button.Group>
       {param === "userslist" ? (
         <Table
           rowKey="id"
@@ -112,11 +113,23 @@ export const Request: React.FC = () => {
           columns={columnData}
         ></Table>
       ) : (
-        <div className="">
-          <div className="">{user.name}</div>
-          <div className="">{user.email}</div>
-          <div className="">{user.id}</div>
-          <div className="">{user.username}</div>
+        <div className="p-5 rounded-lg flex flex-col gap-3 text-white border bg-indigo-300">
+          <div className="">
+            <span>Name: </span>
+            <span>{user.name}</span>
+          </div>
+          <div className="">
+            <span>Username: </span>
+            <span>{user.username}</span>
+          </div>
+          <div className="">
+            <span>Email: </span>
+            <span>{user.email}</span>
+          </div>
+          <div className="">
+            <span>Id: </span>
+            <span>{user.id}</span>
+          </div>
         </div>
       )}
     </div>
